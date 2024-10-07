@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Monedas</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .historial-item { cursor: pointer; }
+        .help-icon {
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #007bff;
+            margin-left: 10px;
+        }
+        .custom-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid py-5">
+    <div class="custom-container">
+        <h1 class="mb-4 text-center">Conversor de Monedas</h1>
+        <form id="conversionForm" class="mb-4">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label for="cantidad" class="form-label">Cantidad:</label>
+                    <input type="number" class="form-control" id="cantidad" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="monedaOrigen" class="form-label">De:</label>
+                    <select id="monedaOrigen" class="form-select">
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="monedaDestino" class="form-label">A:</label>
+                    <select id="monedaDestino" class="form-select">
+                    </select>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-primary">Convertir</button>
+                <button type="button" onclick="limpiarFormulario()" class="btn btn-secondary">Limpiar</button>
+            </div>
+        </form>
+
+        <div class="resultados">
+            <h2 class="h4">Resultado:</h2>
+            <div id="resultado" class="alert alert-info"></div>
+        </div>
+
+        <div class="historial mt-4">
+            <h2 class="h4 d-inline-block">Historial</h2>
+            <i class="fas fa-question-circle help-icon" data-bs-toggle="tooltip" data-bs-placement="right" title="El historial muestra tus conversiones recientes. Haz clic en cualquier entrada para cargar esa conversión."></i>
+            <div id="historial" class="list-group mt-2">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="/js/FuncionesConversor.js"></script>
+</body>
+</html>
